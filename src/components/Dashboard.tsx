@@ -1,24 +1,19 @@
-import React, { memo,useEffect, useState } from "react";
+import  { memo,useEffect, useState } from "react";
 //import React from "react";
 import {
-  Bell,
-  Settings,
-  User,
-  ArrowUpRight,
-  Play,
+
   Menu,
   X , // Add this import
-  Pause,
-  ChevronDown,
+ 
 } from "lucide-react";
 
-interface Task {
-  id: number;
-  title: string;
-  time: string;
-  date: string;
-  completed: boolean;
-}
+// interface Task {
+//   id: number;
+//   title: string;
+//   time: string;
+//   date: string;
+//   completed: boolean;
+// }
 
 interface CircularProgressProps {
   percentage: number;
@@ -274,49 +269,49 @@ const Dashboard = () => {
   }, [menuOpen]);
 
 
-  const stats = {
-    employees: 78,
-    hirings: 56,
-    projects: 203,
-  };
+  // const stats = {
+  //   employees: 78,
+  //   hirings: 56,
+  //   projects: 203,
+  // };
 
-  const onboardingTasks: Task[] = [
-    {
-      id: 1,
-      title: "Interview",
-      time: "08:30",
-      date: "Sep 13",
-      completed: true,
-    },
-    {
-      id: 2,
-      title: "Team Meeting",
-      time: "10:30",
-      date: "Sep 13",
-      completed: true,
-    },
-    {
-      id: 3,
-      title: "Project Update",
-      time: "13:00",
-      date: "Sep 13",
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "Discuss Q3 Goals",
-      time: "14:45",
-      date: "Sep 13",
-      completed: false,
-    },
-    {
-      id: 5,
-      title: "HR Policy Review",
-      time: "16:30",
-      date: "Sep 13",
-      completed: false,
-    },
-  ];
+  // const onboardingTasks: Task[] = [
+  //   {
+  //     id: 1,
+  //     title: "Interview",
+  //     time: "08:30",
+  //     date: "Sep 13",
+  //     completed: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Team Meeting",
+  //     time: "10:30",
+  //     date: "Sep 13",
+  //     completed: true,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Project Update",
+  //     time: "13:00",
+  //     date: "Sep 13",
+  //     completed: false,
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Discuss Q3 Goals",
+  //     time: "14:45",
+  //     date: "Sep 13",
+  //     completed: false,
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "HR Policy Review",
+  //     time: "16:30",
+  //     date: "Sep 13",
+  //     completed: false,
+  //   },
+  // ];
 
   return (
     <div className="w-full min-h-screen custom-gradient rounded-3xl shadow-lg p-6 font-poppins space-y-8">
@@ -408,7 +403,7 @@ const Dashboard = () => {
       {/* Task Progress Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
   {/* Total Bonus Section */}
-  <div className="col-span-1 text-black p-6 rounded-lg shadow-md flex flex-col items-center rounded-lg border border-black">
+  <div className="col-span-1 text-black p-6  shadow-md flex flex-col items-center rounded-lg border border-black">
     <h3 className="text-lg font-semibold mb-4">Total Bonus</h3>
     <span className="text-6xl mb-4">🏛️</span>
     <div className="text-4xl font-bold mb-1">286920.02</div>
@@ -450,7 +445,7 @@ const Dashboard = () => {
           key={bonus.title}
           className="flex flex-col items-center text-center space-y-3"
         >
-          <CircularProgress percentage={bonus.percent} color={bonus.color} />
+          <CircularProgress percentage={bonus.percent} color={bonus.color} ticker="crypto" />
           <p className="text-lg font-medium text-gray-700">{bonus.title}</p>
           <p className="text-2xl font-bold text-gray-800">{bonus.value}</p>
           <p className="text-sm text-gray-600">{bonus.percent}% in Bonus</p>

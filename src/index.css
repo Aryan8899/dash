@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Root styling */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -10,12 +16,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Body settings */
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Hamburger menu */
+#mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+  width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+}
 
+/* Custom Gradient */
 @layer utilities {
   .custom-gradient {
     background: linear-gradient(
@@ -25,7 +49,46 @@ body {
       #fefce8, /* yellow-50 */
       #fde68a  /* yellow-200 */
     );
-    background-attachment: fixed; /* Keeps the gradient in place */
-    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .custom-gradient {
+      padding: 2rem;
+    }
   }
 }
+
+/* Debugging outline */
+
+
+/* Bonus Details Grid */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 440px) {
+  .bonus-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+}
+
+
+/* Mobile-only styles (below 640px) */
+@media (max-width: 639px) {
+  .mobile-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+    margin-left: 1rem;
+    width: 19rem;
+  }
+}
+

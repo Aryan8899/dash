@@ -1,3 +1,4 @@
+
 module.exports = {
   content: [
     "./index.html",
@@ -5,6 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
       fontFamily: {
         dela: ['Dela Gothic One', 'sans-serif'], // Adding the custom font
         poppins: ['Poppins', 'sans-serif'], // Add Poppins as a custom font
@@ -22,5 +24,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
-}
+  plugins: [
+    require('tailwindcss-animated')
+  ],
+};
